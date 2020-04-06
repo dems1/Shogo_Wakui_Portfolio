@@ -1,0 +1,1267 @@
+@charset "UTF-8";
+/* プロパティの順番
+1.位置情報系=position,top,right,z-index,display,float等
+2.サイズ=width,height,padding,margin
+3.文字系=font,line-height,letter-spacing,color,text-align等
+4.背景=background,border等
+5.その他=animation,transition等 */
+/* ------------------------------------------------------------
+共通のcss
+------------------------------------------------------------ */
+@import url("https://fonts.googleapis.com/css?family=Heebo:300,900");
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: '游ゴシック', sans-serif;
+  background: #F5F5F5;
+  color: #0078C6;
+  font-size: 1.4rem;
+  max-width: 1680px;
+  margin: 0 auto;
+  line-height: 20px;
+}
+
+main {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 56px;
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  font-family: 'メイリオ';
+  font-weight: bold;
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  /*線の上下位置*/
+  display: inline-block;
+  width: 60px;
+  /*線の長さ*/
+  height: 5px;
+  /*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  /*位置調整*/
+  background-color: #FEF991;
+  /*線の色*/
+  border-radius: 2px;
+  /*線の丸み*/
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* button */
+button {
+  margin: 56px 0 96px;
+  color: #0078C6;
+  font-weight: bold;
+  width: 200px;
+}
+
+.btn {
+  border: 2px solid #0078C6;
+  z-index: 1;
+  padding: 10px 0;
+  background-color: #0078C6;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background: #fff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  color: #0078C6;
+}
+
+.btn:hover:after {
+  left: 0;
+  width: 100%;
+}
+
+.btn:active {
+  top: 2px;
+}
+
+/* ------------------------------------------------------------
+header
+------------------------------------------------------------ */
+header {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header-logo {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  display: inline-block;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  border: solid 3px;
+  color: #0078C6;
+  text-decoration: none;
+  z-index: 2;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.header-logo:hover {
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+.header-logo p {
+  margin-top: 10px;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+#nav-toggle {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+}
+
+#nav-toggle > div {
+  position: relative;
+  width: 40px;
+}
+
+#nav-toggle > div p {
+  position: relative;
+  top: 38px;
+  font-size: 1rem;
+}
+
+#nav-toggle span {
+  width: 100%;
+  height: 5px;
+  left: 0;
+  display: block;
+  border-radius: 2.5px;
+  background: #0078C6;
+  position: absolute;
+  -webkit-transition: top .5s ease, -webkit-transform .6s ease-in-out;
+  transition: top .5s ease, -webkit-transform .6s ease-in-out;
+  transition: transform .6s ease-in-out, top .5s ease;
+  transition: transform .6s ease-in-out, top .5s ease, -webkit-transform .6s ease-in-out;
+}
+
+#nav-toggle span:nth-child(1) {
+  top: 0;
+}
+
+#nav-toggle span:nth-child(2) {
+  top: 14px;
+}
+
+#nav-toggle span:nth-child(3) {
+  top: 28px;
+}
+
+#nav-toggle:hover span:nth-child(1) {
+  top: 5px;
+}
+
+#nav-toggle:hover span:nth-child(3) {
+  top: 23px;
+}
+
+.open #nav-toggle span {
+  background: #0078C6;
+}
+
+.open #nav-toggle span:nth-child(1) {
+  top: 15px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.open #nav-toggle span:nth-child(2) {
+  top: 15px;
+  width: 0;
+  left: 50%;
+}
+
+.open #nav-toggle span:nth-child(3) {
+  top: 15px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+/* z-index */
+#nav-toggle {
+  z-index: 1000;
+}
+
+#container {
+  z-index: 900;
+}
+
+#gloval-nav {
+  background: #000;
+  color: #0078C6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 990;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 29px;
+  opacity: 0;
+  -webkit-transition: opacity .6s ease, visibility .6s ease;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+
+#gloval-nav a {
+  display: block;
+  color: #0078C6;
+  text-decoration: none;
+  padding: 10px 0;
+  -webkit-transition: color .6s ease;
+  transition: color .6s ease;
+}
+
+#gloval-nav a:hover {
+  color: #666;
+}
+
+#gloval-nav ul {
+  list-style: none;
+}
+
+#gloval-nav ul li {
+  opacity: 0;
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
+  -webkit-transition: opacity .2s ease, -webkit-transform .6s ease;
+  transition: opacity .2s ease, -webkit-transform .6s ease;
+  transition: transform .6s ease, opacity .2s ease;
+  transition: transform .6s ease, opacity .2s ease, -webkit-transform .6s ease;
+}
+
+#gloval-nav ul li:nth-child(2) {
+  -webkit-transition-delay: .15s;
+          transition-delay: .15s;
+}
+
+#gloval-nav ul li:nth-child(3) {
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+}
+
+#gloval-nav ul li:nth-child(4) {
+  -webkit-transition-delay: .45s;
+          transition-delay: .45s;
+}
+
+#gloval-nav ul li:nth-child(5) {
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+
+#gloval-nav ul li:nth-child(6) {
+  -webkit-transition-delay: .75s;
+          transition-delay: .75s;
+}
+
+#gloval-nav ul li:nth-child(7) {
+  -webkit-transition-delay: .9s;
+          transition-delay: .9s;
+}
+
+/* open */
+.open {
+  overflow: hidden;
+}
+
+.open #gloval-nav {
+  visibility: visible;
+  opacity: 1;
+}
+
+.open #gloval-nav li {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity .9s ease, -webkit-transform 1s ease;
+  transition: opacity .9s ease, -webkit-transform 1s ease;
+  transition: transform 1s ease, opacity .9s ease;
+  transition: transform 1s ease, opacity .9s ease, -webkit-transform 1s ease;
+}
+
+/* ------------------------------------------------------------
+TOP
+------------------------------------------------------------ */
+#top {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+#top h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: .3rem;
+  z-index: 2;
+  font-size: 7rem;
+  font-weight: 900;
+  font-family: 'メイリオ';
+}
+
+#top .desc {
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: .2rem;
+  opacity: 0;
+  -webkit-transition: 2s 1.5s;
+  transition: 2s 1.5s;
+}
+
+#top .under-line {
+  position: relative;
+  top: -60px;
+  width: 50%;
+  height: 20px;
+  background-color: #FEF991;
+  z-index: -1;
+}
+
+.scroll img, .scroll p {
+  position: fixed;
+  top: 50%;
+  right: 45px;
+  margin-top: -100px;
+  width: 15px;
+  z-index: 2;
+}
+
+.scroll p {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  margin: -50px 0 0 0;
+  padding: 10px 5px 10px;
+  background-color: #FEF991;
+}
+
+.ex1 {
+  opacity: 0;
+  -webkit-perspective: 200px;
+          perspective: 200px;
+}
+
+.ex1 span {
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
+  opacity: 0;
+}
+
+.ex2 {
+  opacity: 0;
+  -webkit-perspective: 200px;
+          perspective: 200px;
+}
+
+.ex2 span {
+  -webkit-transform: rotateY(-90deg) rotateX(45deg);
+          transform: rotateY(-90deg) rotateX(45deg);
+  -webkit-transform-origin: -50% 75%;
+          transform-origin: -50% 75%;
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------
+PROFILE
+------------------------------------------------------------ */
+#profile {
+  padding: 96px 56px;
+  background-color: #fff;
+  z-index: -100;
+}
+
+#profile .profile-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#profile .profile-flex img {
+  width: 110px;
+  padding-right: 56px;
+}
+
+#profile .profile-flex .profile-letter {
+  text-align: left;
+  max-width: 400px;
+}
+
+#profile .profile-flex .profile-letter h3 {
+  padding-bottom: 24px;
+}
+
+#profile .profile-flex .profile-letter p {
+  padding-bottom: 24px;
+}
+
+#profile .profile-flex .profile-letter .text-20px {
+  font-size: 2rem;
+}
+
+#profile .profile-flex .profile-letter .text-last {
+  padding-bottom: 56px;
+}
+
+/* figure */
+.figure-01, .figure-02 {
+  height: 450px;
+  font-size: 1rem;
+}
+
+.figure-03, .figure-04 {
+  display: none;
+}
+
+.circle {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #0078C6;
+  font-weight: bold;
+}
+
+.circle span {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  top: 53%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100px;
+  text-align: center;
+}
+
+.step-02 .circle {
+  margin: 0 50px;
+  position: relative;
+  top: -50px;
+}
+
+.step-03 .circle {
+  margin: 0 25px;
+  position: relative;
+  top: -50px;
+}
+
+.step-03 .circle-title {
+  margin: 0 30px;
+  position: relative;
+  top: -50px;
+}
+
+.step-04 .circle {
+  margin: 0 50px;
+  position: relative;
+  top: -50px;
+}
+
+.circle2 {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #0078C6;
+  font-weight: bold;
+  top: -100px;
+}
+
+.circle2 span {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  top: 53%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100px;
+  text-align: center;
+}
+
+.circle-title {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #0078C6;
+}
+
+.circle-title span {
+  color: #F5F5F5;
+  font-weight: bold;
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  top: 53%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100px;
+  text-align: center;
+}
+
+.figure-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* ------------------------------------------------------------
+SIRVICE
+------------------------------------------------------------ */
+#sirvice {
+  padding: 96px 56px;
+}
+
+.sirvice-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sirvice-flex div {
+  margin: 0 28px;
+}
+
+.sirvice-flex img {
+  width: 200px;
+  padding-bottom: 24px;
+}
+
+.sirvice-flex figcaption {
+  padding-bottom: 24px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.sirvice-flex p {
+  width: 370px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* ------------------------------------------------------------
+PORTFOLIO
+------------------------------------------------------------ */
+#portfolio {
+  padding: 96px 24px;
+  background-color: #fff;
+}
+
+.swiper-custom-parent {
+  width: 100%;
+  position: relative;
+}
+
+.swiper-custom-parent .swiper-container {
+  width: 80%;
+}
+
+.swiper-custom-parent .swiper-container .swiper-slide img {
+  height: 200px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.swiper-custom-parent .swiper-container .swiper-slide img:hover {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+.swiper-custom-parent .swiper-pagination {
+  display: inline-block;
+  position: relative;
+}
+
+.swiper-custom-parent .swiper-pagination span {
+  margin: 0 5px;
+}
+
+/* ------------------------------------------------------------
+SIDEBAR
+------------------------------------------------------------ */
+#left-side {
+  position: fixed;
+  top: 50%;
+  left: 40px;
+  width: 50px;
+  margin-top: -80px;
+  z-index: 1;
+}
+
+#left-side img {
+  width: 40px;
+  margin: 10px 0;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+#left-side img:hover {
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+#right-side {
+  position: relative;
+}
+
+#right-side .yellow-line {
+  position: fixed;
+  top: -20px;
+  right: 20px;
+  width: 80px;
+  height: 120%;
+  background-color: #FEF991;
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------
+footer
+------------------------------------------------------------ */
+footer {
+  margin-bottom: 28px;
+}
+
+footer small {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  font-size: 1rem;
+  width: 150px;
+}
+
+footer .page-top {
+  width: 40px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 2;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+footer .page-top:hover {
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+/* ------------------------------------------------------------
+業務委託募集ページ
+------------------------------------------------------------ */
+/* ------------------------------------------------------------
+TOP
+------------------------------------------------------------ */
+#top {
+  text-align: left;
+}
+
+#top .top2 {
+  line-height: 100px;
+  font-family: '游教科書体';
+}
+
+#top .under-line2 {
+  position: relative;
+  top: -30px;
+  width: 50%;
+  height: 20px;
+  background-color: #FEF991;
+  z-index: -1;
+}
+
+/* ------------------------------------------------------------
+MESSAGE
+------------------------------------------------------------ */
+#message {
+  padding: 96px 64px;
+}
+
+#message p {
+  line-height: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* ------------------------------------------------------------
+MIND
+------------------------------------------------------------ */
+#mind {
+  padding: 96px 72px;
+}
+
+#mind p {
+  line-height: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* ------------------------------------------------------------
+SKILL
+------------------------------------------------------------ */
+#skill {
+  padding: 96px 72px;
+  background-color: #fff;
+}
+
+#skill .skill-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#skill .skill-flex figcaption {
+  margin-top: 24px;
+}
+
+#skill .skill-flex img {
+  width: 100px;
+  margin: 56px 56px 0;
+}
+
+/* ------------------------------------------------------------
+MERIT
+------------------------------------------------------------ */
+#merit {
+  padding: 96px 72px;
+}
+
+#merit .bold {
+  line-height: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#merit .list-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 56px;
+}
+
+#merit .list-flex img {
+  width: 200px;
+}
+
+#merit .list-flex li {
+  margin: 28px 28px;
+  text-align: left;
+  list-style-type: disc;
+}
+
+#merit .arrow {
+  width: 50px;
+  margin: 24px 0;
+}
+
+#merit .merit-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#merit .merit-flex .merit-block {
+  margin: 56px 32px;
+}
+
+#merit .merit-flex .merit-block .number {
+  padding: 56px;
+  font-family: 'ヒラギノ明朝 ProN';
+  font-size: 15rem;
+}
+
+#merit .merit-flex .merit-block .merit-title {
+  margin: 24px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#merit .merit-flex .merit-block .merit-letter {
+  width: 300px;
+  text-align: left;
+  font-size: 1.6rem;
+}
+
+/* ------------------------------------------------------------
+BIOGRAPHY
+------------------------------------------------------------ */
+#biography {
+  padding: 96px 72px;
+  background-color: #fff;
+}
+
+#biography h2 {
+  margin-top: 56px;
+}
+
+#biography .timeline {
+  margin: 0 25% 0;
+}
+
+#biography .timeline .timeline-content {
+  padding: 16px 0 16px 16px;
+  margin: 8px 0 32px 32px;
+  border-left: 2px solid #0078C6;
+}
+
+#biography .timeline .timeline-content .timeline-title {
+  font-weight: bold;
+}
+
+#biography .timeline .timeline-content-last {
+  padding: 0 0 24px 24px;
+  margin: 0 0 32px 0;
+  border: none;
+}
+
+#biography .timeline .timeline-content-last .timeline-title {
+  font-weight: bold;
+}
+
+#biography .timeline p {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+/* ------------------------------------------------------------
+CONTACT
+------------------------------------------------------------ */
+#contact {
+  padding: 96px 72px;
+}
+
+#contact p {
+  line-height: 40px;
+  margin-bottom: 56px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* ------------------------------------------------------------
+業務委託募集ページ END
+------------------------------------------------------------ */
+/* ------------------------------------------------------------
+ポートフォリオページ
+------------------------------------------------------------ */
+/* ------------------------------------------------------------
+WORKS
+------------------------------------------------------------ */
+#works {
+  padding: 96px 0;
+}
+
+#works h2 {
+  margin-bottom: 56px;
+}
+
+#works figure {
+  margin-bottom: 56px;
+}
+
+#works figure img {
+  width: 60%;
+  border: 3px solid #fff;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+#works figure img:hover {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+#works figure h3 {
+  margin: 24px 0;
+}
+
+/* ------------------------------------------------------------
+ポートフォリオページ END
+------------------------------------------------------------ */
+/* ------------------------------------------------------------
+個別投稿ページ
+------------------------------------------------------------ */
+#single {
+  padding: 96px 0;
+}
+
+#single h2 {
+  margin-bottom: 56px;
+}
+
+#single img {
+  width: 60%;
+  border: 3px solid #fff;
+}
+
+#single figcaption {
+  width: 60%;
+  padding-top: 56px;
+  text-align: left;
+  display: inline-block;
+}
+
+#single figcaption h3 {
+  padding-bottom: 24px;
+}
+
+#single figcaption p {
+  padding: 0 0 24px 24px;
+}
+
+#single figcaption a {
+  color: #0078C6;
+}
+
+#single figcaption a:hover {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------
+個別投稿ページ END
+------------------------------------------------------------ */
+/* 画面幅 1200px未満 */
+@media screen and (max-width: 1199px) {
+  .figure-flex {
+    display: block;
+  }
+  .figure-flex .figure-02 {
+    margin-top: 56px;
+  }
+  #merit .bold {
+    line-height: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  #merit .list-flex {
+    display: inline-block;
+    margin-top: 56px;
+  }
+  #merit .merit-flex {
+    display: inline-block;
+  }
+  #merit .merit-flex .merit-block {
+    margin: 56px 0;
+  }
+}
+
+/* 画面幅 960px未満 */
+@media screen and (max-width: 959px) {
+  main {
+    margin: 0 auto;
+  }
+  .profile-flex {
+    display: block !important;
+    margin: 0 40px;
+  }
+  .profile-flex img {
+    width: 100px;
+    padding-right: 0;
+  }
+  .profile-flex .profile-letter {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  #right-side {
+    position: relative;
+  }
+  #right-side .yellow-line {
+    position: fixed;
+    top: -20px;
+    right: 45px;
+    width: 30px;
+  }
+  #skill {
+    padding: 96px 56px;
+  }
+  #skill .sirvice-flex {
+    display: block;
+  }
+  #skill .sirvice-flex .cording {
+    margin-top: 56px;
+  }
+  #skill .skill-flex {
+    display: inline-block;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #skill .skill-flex2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #biography .timeline {
+    margin: 0 56px;
+  }
+  #biography .timeline .timeline-content {
+    padding: 16px 0 16px;
+    margin: 8px 0  32px;
+    border-left: none;
+  }
+  #biography .timeline .timeline-content-last {
+    padding: 0 0 0;
+    margin: 0 0 32px 0;
+    border: none;
+  }
+}
+
+/* 画面幅 700px未満 */
+@media screen and (max-width: 699px) {
+  #top {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  #top h1 {
+    font-size: 3rem;
+  }
+  #top h1.desc {
+    font-size: .5rem;
+  }
+  #top a {
+    font-size: .4rem;
+  }
+  #skill .skill-flex2 {
+    display: inline-block;
+  }
+  .figure-01, .figure-02 {
+    display: none;
+  }
+  .figure-03, .figure-04 {
+    display: block;
+    text-align: left;
+    padding-left: 80px;
+  }
+  .figure-03 p, .figure-04 p {
+    padding: 24px 0;
+    font-weight: bold;
+  }
+  .figure-03 li, .figure-04 li {
+    list-style-type: disc;
+    margin: 5px;
+  }
+}
+
+/* 画面幅 560px未満 */
+@media screen and (max-width: 450px) {
+  #profile {
+    padding: 96px 0;
+  }
+  #profile .figure-03, #profile .figure-04 {
+    padding-left: 56px;
+  }
+  #message {
+    padding: 96px 40px;
+  }
+  #mind {
+    padding: 96px 40px;
+  }
+  #skill {
+    padding: 96px 40px;
+  }
+  #merit {
+    padding: 96px 40px;
+  }
+  #biography {
+    padding: 96px 40px;
+  }
+  #biography .timeline {
+    margin: 0 0;
+  }
+  #contact {
+    padding: 96px 40px;
+  }
+  .profile-flex img {
+    width: 50px;
+  }
+  .sirvice-flex p {
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .header-logo {
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  .header-logo p {
+    margin-top: 8px;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  #nav-toggle {
+    top: 10px;
+    right: 10px;
+  }
+  #nav-toggle > div {
+    width: 30px;
+  }
+  #nav-toggle p {
+    display: none;
+  }
+  #nav-toggle span {
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+  }
+  #nav-toggle span:nth-child(1) {
+    top: 0;
+  }
+  #nav-toggle span:nth-child(2) {
+    top: 12px;
+  }
+  #nav-toggle span:nth-child(3) {
+    top: 24px;
+  }
+  #nav-toggle span:hover span:nth-child(1) {
+    top: 3px;
+  }
+  #nav-toggle span:hover span:nth-child(3) {
+    top: 6px;
+  }
+  .scroll img, .scroll p {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    margin-top: -100px;
+    width: 15px;
+  }
+  #left-side {
+    left: 5px;
+    width: 30px;
+  }
+  #left-side img {
+    width: 30px;
+    margin: 10px 0;
+  }
+  #right-side .yellow-line {
+    position: fixed;
+    top: -20px;
+    right: 10px;
+  }
+  footer small {
+    bottom: 10px;
+    left: 10px;
+  }
+  footer .page-top {
+    width: 30px;
+    bottom: 10px;
+    right: 10px;
+  }
+  #biography .timeline {
+    margin: 0 0;
+  }
+  #single figcaption {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
