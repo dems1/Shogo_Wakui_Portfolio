@@ -17,7 +17,7 @@ html, body {
 }
 
 body {
-  font-family: '游ゴシック', sans-serif;
+  font-family: '游ゴシック','Sawarabi Gothic','ヒラギノ角ゴProN';
   background: #F5F5F5;
   color: #0078C6;
   font-size: 1.4rem;
@@ -35,7 +35,7 @@ h2 {
   position: relative;
   display: inline-block;
   font-size: 3rem;
-  font-family: 'メイリオ';
+  font-family: 'メイリオ','Noto Sans JP','ヒラギノ角ゴProN';
   font-weight: bold;
 }
 
@@ -262,7 +262,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 29px;
+  font-size: 2.9rem;
   opacity: 0;
   -webkit-transition: opacity .6s ease, visibility .6s ease;
   transition: opacity .6s ease, visibility .6s ease;
@@ -272,7 +272,7 @@ header {
   display: block;
   color: #0078C6;
   text-decoration: none;
-  padding: 10px 0;
+  padding: 15px 0;
   -webkit-transition: color .6s ease;
   transition: color .6s ease;
 }
@@ -375,7 +375,7 @@ TOP
   z-index: 2;
   font-size: 7rem;
   font-weight: 900;
-  font-family: 'メイリオ';
+  font-family: 'メイリオ','Sawarabi Gothic','ヒラギノ角ゴProN';
 }
 
 #top .desc {
@@ -753,7 +753,7 @@ TOP
 
 #top .top2 {
   line-height: 100px;
-  font-family: '游教科書体';
+  font-family: '游教科書体','Noto Serif JP', sans-serif;
 }
 
 #top .under-line2 {
@@ -870,7 +870,7 @@ MERIT
 
 #merit .merit-flex .merit-block .number {
   padding: 56px;
-  font-family: 'ヒラギノ明朝 ProN';
+  font-family: 'ヒラギノ明朝 ProN','Sawarabi Mincho', sans-serif;
   font-size: 15rem;
 }
 
@@ -895,7 +895,7 @@ BIOGRAPHY
 }
 
 #biography h2 {
-  margin-top: 56px;
+  margin-bottom: 56px;
 }
 
 #biography .timeline {
@@ -1062,6 +1062,7 @@ WORKS
   .profile-flex img {
     width: 100px;
     padding-right: 0;
+    margin-left: 30px;
   }
   .profile-flex .profile-letter {
     display: inline-block;
@@ -1079,18 +1080,29 @@ WORKS
   #skill {
     padding: 96px 56px;
   }
+
+  .sirvice-flex {
+    display: block;
+  }
+
+  .sirvice-flex div {
+    margin: 0 0px;
+  }
+
   #skill .sirvice-flex {
     display: block;
   }
-  #skill .sirvice-flex .cording {
+  .sirvice-flex .cording {
     margin-top: 56px;
   }
+
   #skill .skill-flex {
     display: inline-block;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
+
   #skill .skill-flex2 {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1099,14 +1111,17 @@ WORKS
         -ms-flex-pack: center;
             justify-content: center;
   }
+
   #biography .timeline {
     margin: 0 56px;
   }
+
   #biography .timeline .timeline-content {
     padding: 16px 0 16px;
     margin: 8px 0  32px;
     border-left: none;
   }
+
   #biography .timeline .timeline-content-last {
     padding: 0 0 0;
     margin: 0 0 32px 0;
@@ -1120,34 +1135,43 @@ WORKS
     max-width: 300px;
     margin: 0 auto;
   }
+
   #top h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
-  #top h1.desc {
-    font-size: .5rem;
+
+  #top .desc {
+    font-size: 1.5rem;
   }
+
   #top a {
     font-size: .4rem;
   }
+
   #skill .skill-flex2 {
     display: inline-block;
   }
+
   .figure-01, .figure-02 {
     display: none;
   }
+
   .figure-03, .figure-04 {
     display: block;
     text-align: left;
     padding-left: 80px;
   }
+
   .figure-03 p, .figure-04 p {
     padding: 24px 0;
     font-weight: bold;
   }
+
   .figure-03 li, .figure-04 li {
     list-style-type: disc;
     margin: 5px;
   }
+
 }
 
 /* 画面幅 560px未満 */
@@ -1155,113 +1179,147 @@ WORKS
   #profile {
     padding: 96px 0;
   }
-  #profile .figure-03, #profile .figure-04 {
-    padding-left: 56px;
+
+
+ .figure-03, .figure-04 {
+   padding-left: 20%;
   }
+
   #message {
     padding: 96px 40px;
   }
+
   #mind {
     padding: 96px 40px;
   }
+
   #skill {
     padding: 96px 40px;
   }
+
   #merit {
     padding: 96px 40px;
   }
+
   #biography {
     padding: 96px 40px;
   }
+
   #biography .timeline {
     margin: 0 0;
   }
+
   #contact {
     padding: 96px 40px;
   }
+
   .profile-flex img {
     width: 50px;
   }
+
   .sirvice-flex p {
     width: 250px;
     margin: 0 auto;
     text-align: center;
   }
+
   .header-logo {
     top: 10px;
     left: 10px;
     width: 30px;
     height: 30px;
   }
+
   .header-logo p {
-    margin-top: 8px;
+    margin-top: 5px;
     font-size: 3rem;
     font-weight: bold;
   }
+
   #nav-toggle {
     top: 10px;
     right: 10px;
   }
+
   #nav-toggle > div {
     width: 30px;
   }
-  #nav-toggle p {
-    display: none;
+  #nav-toggle > div p {
+    top: 25px;
   }
+
   #nav-toggle span {
     width: 100%;
     height: 3px;
     border-radius: 1.5px;
   }
+
   #nav-toggle span:nth-child(1) {
     top: 0;
   }
+
   #nav-toggle span:nth-child(2) {
     top: 12px;
   }
+
   #nav-toggle span:nth-child(3) {
     top: 24px;
   }
+
   #nav-toggle span:hover span:nth-child(1) {
     top: 3px;
   }
+
   #nav-toggle span:hover span:nth-child(3) {
     top: 6px;
   }
+
   .scroll img, .scroll p {
-    position: fixed;
-    top: 50%;
-    right: 10px;
-    margin-top: -100px;
-    width: 15px;
+    display: none;
   }
-  #left-side {
-    left: 5px;
-    width: 30px;
-  }
+
   #left-side img {
-    width: 30px;
-    margin: 10px 0;
+    display: none;
   }
+
   #right-side .yellow-line {
-    position: fixed;
-    top: -20px;
-    right: 10px;
+    display: none;
   }
+
   footer small {
     bottom: 10px;
     left: 10px;
   }
+
   footer .page-top {
     width: 30px;
     bottom: 10px;
     right: 10px;
   }
+
   #biography .timeline {
     margin: 0 0;
   }
+
   #single figcaption {
     width: 80%;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+
+  }
+
+  #contact p {
+    font-size: 1.8rem;
+  }
+
+  #mind p {
+    font-size: 1.8rem;
+  }
+
+  #message p {
+    font-size: 1.8rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

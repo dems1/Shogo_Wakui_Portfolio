@@ -3,16 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>Shogo Wakui Portfolio Site</title>
-        <meta name="description" content="サイト名">
+        <meta name="description" content="Shogo Wakui Portfolio Site">
+        <meta name="keywords" content="札幌,フリーランス,Webデザイナー">
         <!-- spの表示方法 -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@hr_shum" />
-        <meta property="og:url" content="https://demsportforio.com" />
-        <meta property="og:title" content="Shogo Wakui Portfolio Site" />
-        <meta property="og:description" content="泉井省吾のポートフォリオサイトです。" />
-        <meta property="og:image" content="img/ss.png" />
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@hr_shum">
+        <meta property="og:url" content="https://demsportforio.com">
+        <meta property="og:title" content="Shogo Wakui Portfolio Site">
+        <meta property="og:description" content="泉井省吾のポートフォリオサイト">
+        <meta property="og:image" content="https://demsportforio.com/img/ss.png">
         <!-- reset css -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
         <!-- ファビコンの設定 -->
@@ -20,7 +21,17 @@
         <!-- css 読み込み -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Gothic|Noto+Serif+JP|Sawarabi+Mincho&display=swap" rel="stylesheet">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150148741-2"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'UA-150148741-2');
+        </script>
     </head>
 
     <body>
@@ -48,6 +59,9 @@
                                 <li><a href="profile.html">Profile</a></li>
                                 <li><a href="price.html">Price</a></li>
                                 <li><a href="portfolio.html">Portfolio</a></li>
+                                <li><a href="https://twitter.com/hr_shum">Twitter</a></li>
+                                <li><a href="https://www.instagram.com/s_w_94/">Instagram</a></li>
+                                <li><a href="https://github.com/dems1/Shogo_Wakui_Portfolio">GitHub</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -230,12 +244,12 @@
                         <h2>サービス</h2>
                         <div class="sirvice-flex">
                             <div class="web-design">
-                                <figure><img src="img/design.png" alt="Webデザインのロゴ"><figcaption>Webデザイン</figcaption></figcaption></figure>
+                                <figure><img src="img/design.png" alt="Webデザインのロゴ"><figcaption>Webデザイン</figcaption></figure>
                                 <p>クライアント様とサイトを作る目的を明確にし、目的を達成するためのサイト設計から始めます。ここの部分がウェブサイトを作る上で1番大事なところです。そこからワイヤーフレーム作成→デザインカンプ作成と進めていきます。シンプルで余白を多く取り入れたデザインを得意としており、LP、コーポーレートサイト、ポートフォリオサイトなど、様々なサイト制作が出来ます。
                                 </p>
                             </div>
                             <div class="cording">
-                                <figure><img src="img/cording.png" alt="コーディングのロゴ"><figcaption>コーディング</figcaption></figcaption></figure>
+                                <figure><img src="img/cording.png" alt="コーディングのロゴ"><figcaption>コーディング</figcaption></figure>
                                 <p>HTML5 / CSS3、およびJavaScriptを用いたコーディングを行います。Googleコーディング規約に基づきコーディングし、SEOに強く綺麗なコードを心掛けております。デザインカンプからコーディング、必要に応じてjQueryなどで動きをつけていきます。Wordpressという機能を実装することによって、ブログ記事の投稿などクライアント様が編集することが可能になります。
                                 </p>
                             </div>
@@ -254,10 +268,10 @@
                                 <!-- Additional required wrapper -->
                                 <div class="swiper-wrapper">
                                     <!-- Slides -->
-                                    <a href="single_01.html" class="swiper-slide"><img src="img/ss.png"></a>
-                                    <a href="single_02.html" class="swiper-slide"><img src="img/portfolio_01.jpg"></a>
-                                    <a href="single_03.html" class="swiper-slide"><img src="img/portfolio_02.png"></a>
-                                    <a href="single_04.html" class="swiper-slide"><img src="img/portfolio_03.jpg"></a>
+                                    <a href="single_01.html" class="swiper-slide"><img src="img/ss.png" alt="ポートフォリオサイト"></a>
+                                    <a href="single_02.html" class="swiper-slide"><img src="img/portfolio_01.jpg" alt="ポートフォリオサイト"></a>
+                                    <a href="single_03.html" class="swiper-slide"><img src="img/portfolio_02.png" alt="ビジネスカード"></a>
+                                    <a href="single_04.html" class="swiper-slide"><img src="img/portfolio_03.jpg" alt="ビジネスカード"></a>
                                 </div>
                             </div>
                             <!-- If we need pagination -->
